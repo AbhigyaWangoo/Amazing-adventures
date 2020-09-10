@@ -1,6 +1,72 @@
 {
-  "name": "java",
-  "version": "1.0.0",
-  "dependencies": {
-  }
+  "Rooms": [
+    {
+      "name" : "Soccer Field",
+      "items" : [
+        "ball", "cleats"
+      ],
+      "Available Directions": ["W","S","E"]
+    },
+    {
+      "name" : "Outside Amazon Tower",
+      "items" : [
+       "newspaper"
+      ],
+      "Available Directions": ["Inside"]
+    },
+    {
+      "name" : "Inside Amazon Tower",
+      "items" : [
+        "laptop", "coffee"
+      ],
+      "Available Directions": ["Outside"]
+    },
+    {
+      "name" : "Ike's sandwiches",
+      "items" : [
+        "Elvis Keith Sandwich", "Meatball Sub"
+      ],
+      "Available Directions": ["N","E"]
+    },
+    {
+      "name" : "Plaza",
+      "items" : [
+      ],
+      "Available Directions": ["W","S","E","N"]
+    },
+    {
+      "name" : "Adidas",
+      "items" : [
+        "Ultraboost","NMD"
+      ],
+      "Available Directions": ["W","S","N"]
+    },
+    {
+      "name" : "Basketball Court",
+      "items" : [
+        "Basketball"
+      ],
+      "Available Directions": ["W","S"]
+    },
+    {
+      "name" : "Video Shop",
+      "items" : [
+        "Headphones", "Controller"
+      ],
+      "Available Directions": ["E"]
+    },
+    {
+      "name" : "Outside Hotel Marriott",
+      "items" : [
+      ],
+      "Available Directions": ["Inside"]
+    },
+    {
+      "name" : "Inside Hotel Marriott",
+      "items" : [
+        "Suit"
+      ],
+      "Available Directions": ["Outside"]
+    }
+  ]
 }
