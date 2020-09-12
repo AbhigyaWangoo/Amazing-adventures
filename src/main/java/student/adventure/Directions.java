@@ -1,3 +1,5 @@
+package student.adventure;
+
 public enum Directions{
     North, // head north in map
     South, // head south in map

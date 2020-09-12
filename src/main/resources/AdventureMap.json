@@ -1,72 +1,86 @@
 {
   "Rooms": [
     {
-      "name" : "Soccer Field",
-      "items" : [
-        "ball", "cleats"
-      ],
-      "Available Directions": ["W","S","E"]
+      "SoccerField": 
+      {
+        "items": [
+          "ball",
+          "cleats"
+        ],
+        "availableDirections": [
+          "W":"AmazonTower",
+          "S",
+          "E"
+        ]
+      }
     },
     {
-      "name" : "Outside Amazon Tower",
-      "items" : [
-       "newspaper"
-      ],
-      "Available Directions": ["Inside"]
+      "AmazonTower": {
+        "items": [
+          "newspaper"
+        ],
+        "availableDirections": [
+          "Inside"
+        ]
+      }
     },
     {
-      "name" : "Inside Amazon Tower",
-      "items" : [
-        "laptop", "coffee"
-      ],
-      "Available Directions": ["Outside"]
+      "AmazonLobby": {
+        "items": [
+          "laptop",
+          "coffee"
+        ],
+        "availableDirections": [
+          "Outside"
+        ]
+      }
     },
     {
       "name" : "Ike's sandwiches",
       "items" : [
         "Elvis Keith Sandwich", "Meatball Sub"
       ],
-      "Available Directions": ["N","E"]
+      "availableDirections": ["N","E"]
     },
     {
       "name" : "Plaza",
       "items" : [
       ],
-      "Available Directions": ["W","S","E","N"]
+      "availableDirections": ["W","S","E","N"]
     },
     {
       "name" : "Adidas",
       "items" : [
         "Ultraboost","NMD"
       ],
-      "Available Directions": ["W","S","N"]
+      "availableDirections": ["W","S","N"]
     },
     {
       "name" : "Basketball Court",
       "items" : [
         "Basketball"
       ],
-      "Available Directions": ["W","S"]
+      "availableDirections": ["W","S"]
     },
     {
       "name" : "Video Shop",
       "items" : [
         "Headphones", "Controller"
       ],
-      "Available Directions": ["E"]
+      "availableDirections": ["E"]
     },
     {
       "name" : "Outside Hotel Marriott",
       "items" : [
       ],
-      "Available Directions": ["Inside"]
+      "availableDirections": ["Inside"]
     },
     {
       "name" : "Inside Hotel Marriott",
       "items" : [
         "Suit"
       ],
-      "Available Directions": ["Outside"]
+      "availableDirections": ["Outside"]
     }
   ]
 }

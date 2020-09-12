@@ -1,3 +1,5 @@
+package student.adventure;
+
 import java.util.List;
 
 /**

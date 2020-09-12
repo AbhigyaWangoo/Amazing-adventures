@@ -1,3 +1,5 @@
+package student.adventure;
+
 public class UISetup {
     private String userInput;
 
