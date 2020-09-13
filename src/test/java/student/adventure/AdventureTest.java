@@ -1,20 +1,23 @@
 package student.adventure;
 
-import static org.junit.Assert.assertThat;
-
 import org.hamcrest.CoreMatchers;
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.*;
+
 
 public class AdventureTest {
+    GameEngine gameEngine = new GameEngine();
+
     @Before
     public void setUp() {
-        // This is run before every test.
+        gameEngine = new GameEngine();
     }
 
     @Test
     public void testDeserialization() {
+        assertTrue(gameEngine.deserialize());
     }
 
     @Test
