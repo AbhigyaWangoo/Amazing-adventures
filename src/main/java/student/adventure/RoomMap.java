@@ -1,15 +1,16 @@
 package student.adventure;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Class for constructing map of rooms, works similar to a non-binary tree
  */
 public class RoomMap {
     private String roomName;
-    private List<RoomMap> directions;
+    private Map<String,RoomMap> directions;
 
-    public RoomMap(String roomName, List<RoomMap> directions) {
+    public RoomMap(String roomName, Map<String,RoomMap> directions) {
         this.roomName = roomName;
         this.directions = directions;
     }
@@ -22,11 +23,11 @@ public class RoomMap {
         this.roomName = roomName;
     }
 
-    public List<RoomMap> getDirections() {
+    public Map<String,RoomMap> getDirections() {
         return directions;
     }
 
-    public void setDirections(List<RoomMap> directions) {
+    public void setDirections(Map<String,RoomMap> directions) {
         this.directions = directions;
     }
 }

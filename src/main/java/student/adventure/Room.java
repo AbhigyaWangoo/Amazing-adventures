@@ -4,14 +4,19 @@ import student.adventure.RoomDetail;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Highest level of JSON Schema
  */
 public class Room {
-    private List<RoomDetail> rooms = new ArrayList<>();
+    private Map<String, RoomDetail> rooms;
 
-    public List<RoomDetail> getRooms() {
+    public void setRooms(Map<String, RoomDetail> rooms) {
+        this.rooms = rooms;
+    }
+
+    public Map<String, RoomDetail> getRooms() {
         return rooms;
     }
 }
