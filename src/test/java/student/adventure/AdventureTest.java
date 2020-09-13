@@ -13,11 +13,22 @@ public class AdventureTest {
     @Before
     public void setUp() {
         gameEngine = new GameEngine();
+        gameEngine.deserialize();
     }
 
     @Test
     public void testDeserialization() {
         assertTrue(gameEngine.deserialize());
+    }
+
+    @Test
+    public void testPlayerMove() {
+        Player player = new Player();
+        RoomDetail currentRoom = gameEngine.getRooms().getRooms().get("soccerField");
+        RoomDetail nextRoom = gameEngine.getRooms().getRooms().get("amazonTower");
+
+        player.move("west", gameEngine.getRooms(), currentRoom);
+        assertEquals(player.getCurrentRoom(),nextRoom);
     }
 
     @Test
@@ -34,5 +45,18 @@ public class AdventureTest {
 
     @Test
     public void testItemPickup() {
+    }
+
+    // Boundary Cases
+    @Test
+    public void testNullMovePath() {
+        Player player = new Player();
+        RoomDetail currentRoom = gameEngine.getRooms().getRooms().get("soccerField");
+        try{
+            player.move("north", gameEngine.getRooms(), currentRoom);
+        } catch (IllegalArgumentException e){
+            assertTrue(true);
+        }
+
     }
 }
