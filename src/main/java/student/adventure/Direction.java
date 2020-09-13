@@ -13,32 +13,16 @@ public class Direction {
         return northRoom;
     }
 
-    public void setNorthRoom(String northRoom) {
-        this.northRoom = northRoom;
-    }
-
     public String getSouthRoom() {
         return southRoom;
-    }
-
-    public void setSouthRoom(String southRoom) {
-        this.southRoom = southRoom;
     }
 
     public String getWestRoom() {
         return westRoom;
     }
 
-    public void setWestRoom(String westRoom) {
-        this.westRoom = westRoom;
-    }
-
     public String getEastRoom() {
         return eastRoom;
-    }
-
-    public void setEastRoom(String eastRoom) {
-        this.eastRoom = eastRoom;
     }
 
     public String getInsideRoom() {
