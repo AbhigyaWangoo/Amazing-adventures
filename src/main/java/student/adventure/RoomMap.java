@@ -1,5 +1,6 @@
 package student.adventure;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -7,27 +8,13 @@ import java.util.Map;
  * Class for constructing map of rooms, works similar to a non-binary tree
  */
 public class RoomMap {
-    private String roomName;
-    private Map<String,RoomMap> directions;
+    private Map<String, RoomDetail> rooms = new HashMap<>();
 
-    public RoomMap(String roomName, Map<String,RoomMap> directions) {
-        this.roomName = roomName;
-        this.directions = directions;
+    public void setRooms(Map<String, RoomDetail> rooms) {
+        this.rooms = rooms;
     }
 
-    public String getRoomName() {
-        return roomName;
-    }
-
-    public void setRoomName(String roomName) {
-        this.roomName = roomName;
-    }
-
-    public Map<String,RoomMap> getDirections() {
-        return directions;
-    }
-
-    public void setDirections(Map<String,RoomMap> directions) {
-        this.directions = directions;
+    public Map<String, RoomDetail> getRooms() {
+        return rooms;
     }
 }
