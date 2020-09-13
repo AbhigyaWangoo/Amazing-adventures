@@ -5,9 +5,9 @@
       "cleats"
     ],
     "directions": {
-      "west": "amazonTower",
-      "south": "plazaCenter",
-      "east": "basketballCourt"
+      "westRoom": "amazonTower",
+      "southRoom": "plazaCenter",
+      "eastRoom": "basketballCourt"
     }
   },
   "amazonTower": {
@@ -15,9 +15,9 @@
       "newspaper"
     ],
     "directions": {
-      "inside": "amazonLobby",
-      "east": "soccerField",
-      "south": "ike's"
+      "insideRoom": "amazonLobby",
+      "eastRoom": "soccerField",
+      "southRoom": "ike's"
     }
   },
   "amazonLobby": {
@@ -26,7 +26,7 @@
       "coffee"
     ],
     "directions": {
-      "outside": "amazonTower"
+      "outsideRoom": "amazonTower"
     }
   },
   "ikes": {
@@ -35,18 +35,18 @@
       "Meatball Sub"
     ],
     "directions": {
-      "north": "amazonTower",
-      "east": "plazaCenter"
+      "northRoom": "amazonTower",
+      "eastRoom": "plazaCenter"
     }
   },
   "plazaCenter": {
     "items": [
     ],
     "directions": {
-      "west": "ikes",
-      "south": "videoShop",
-      "east": "adidas",
-      "north": "soccerField"
+      "westRoomRoom": "ikes",
+      "southRoom": "videoShop",
+      "eastRoom": "adidas",
+      "northRoom": "soccerField"
     }
   },
   "adidas": {
@@ -55,9 +55,9 @@
       "NMD"
     ],
     "directions": {
-      "west": "plazaCenter",
-      "south": "hotel",
-      "north": "basketballCourt"
+      "westRoom": "plazaCenter",
+      "southRoom": "hotel",
+      "northRoom": "basketballCourt"
     }
   },
   "basketballCourt": {
@@ -65,8 +65,8 @@
       "Basketball"
     ],
     "directions": {
-      "west": "soccerField",
-      "south": "adidas"
+      "westRoom": "soccerField",
+      "southRoom": "adidas"
     }
   },
   "videoShop": {
@@ -75,25 +75,25 @@
       "Controller"
     ],
     "directions": {
-      "east": "hotel",
-      "north": "plazaCenter"
+      "eastRoom": "hotel",
+      "northRoom": "plazaCenter"
     }
   },
   "hotel": {
     "items": [
     ],
     "directions": {
-      "inside": "insideHotel",
-      "north": "adidas",
-      "west": "videoShop"
+      "insideRoom": "insideHotel",
+      "northRoom": "adidas",
+      "westRoom": "videoShop"
     }
   },
-  "insideHotel": {
+  "insideRoomHotel": {
     "items": [
       "Suit"
     ],
     "directions": {
-      "outside": "hotel"
+      "outsideRoom": "hotel"
     }
   }
 }

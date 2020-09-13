@@ -2,58 +2,58 @@ package student.adventure;
 
 
 public class Direction {
-    private String north;
-    private String south;
-    private String west;
-    private String east;
-    private String inside;
-    private String outside;
+    private String northRoom;
+    private String southRoom;
+    private String westRoom;
+    private String eastRoom;
+    private String insideRoom;
+    private String outsideRoom;
 
-    public String getNorth() {
-        return north;
+    public String getNorthRoom() {
+        return northRoom;
     }
 
-    public void setNorth(String north) {
-        this.north = north;
+    public void setNorthRoom(String northRoom) {
+        this.northRoom = northRoom;
     }
 
-    public String getSouth() {
-        return south;
+    public String getSouthRoom() {
+        return southRoom;
     }
 
-    public void setSouth(String south) {
-        this.south = south;
+    public void setSouthRoom(String southRoom) {
+        this.southRoom = southRoom;
     }
 
-    public String getWest() {
-        return west;
+    public String getWestRoom() {
+        return westRoom;
     }
 
-    public void setWest(String west) {
-        this.west = west;
+    public void setWestRoom(String westRoom) {
+        this.westRoom = westRoom;
     }
 
-    public String getEast() {
-        return east;
+    public String getEastRoom() {
+        return eastRoom;
     }
 
-    public void setEast(String east) {
-        this.east = east;
+    public void setEastRoom(String eastRoom) {
+        this.eastRoom = eastRoom;
     }
 
-    public String getInside() {
-        return inside;
+    public String getInsideRoom() {
+        return insideRoom;
     }
 
-    public void setInside(String inside) {
-        this.inside = inside;
+    public void setInsideRoom(String insideRoom) {
+        this.insideRoom = insideRoom;
     }
 
-    public String getOutside() {
-        return outside;
+    public String getOutsideRoom() {
+        return outsideRoom;
     }
 
-    public void setOutside(String outside) {
-        this.outside = outside;
+    public void setOutsideRoom(String outsideRoom) {
+        this.outsideRoom = outsideRoom;
     }
 }
