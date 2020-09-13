@@ -89,8 +89,18 @@ public class Player {
         }
     }
 
-    // Helper functions
+    public void dropItem(String item, RoomMap roomMap){
+        List<String> roomItems = roomMap.getRooms().get(currentRoomName).getItems();
+        try{
+            inventory.remove(item); // Drops item from inventory
+            roomItems.add(item); // Adds item to room
 
+            roomMap.getRooms().get(currentRoomName).setItems(roomItems);
+        } catch(Exception e){
+            throw new RuntimeException();
+        }
+    }
+    // Helper functions
     // following functions return a RoomDetail object of the room in the given direction
     private RoomDetail westRoom(RoomMap roomMap, RoomDetail currentRoom){
         return roomMap.getRooms().get(currentRoom.getDirections().getWestRoom());
