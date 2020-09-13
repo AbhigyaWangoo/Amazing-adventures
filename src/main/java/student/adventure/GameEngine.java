@@ -11,7 +11,11 @@ import java.util.List;
 import java.util.Map;
 
 public class GameEngine {
-  private Room room = new Room();
+  private RoomMap rooms = new RoomMap();
+
+  public RoomMap getRooms() {
+    return rooms;
+  }
 
   /**
    * Standard function to deserialize JSON file into room member variable
@@ -26,7 +30,7 @@ public class GameEngine {
       Type type = new TypeToken<HashMap<String, RoomDetail>>() {}.getType();
 
       Map<String, RoomDetail> map = gson.fromJson(jsonString, type);
-      room.setRooms(map);
+      rooms.setRooms(map);
 
       return true;
     } catch (Exception e) {
