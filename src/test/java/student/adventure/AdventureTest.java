@@ -5,6 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -46,10 +47,6 @@ public class AdventureTest {
     }
 
     @Test
-    public void testItemDrop() {
-    }
-
-    @Test
     public void testItemPickup() {
         player.pickUpItem("ball", gameEngine.getRooms());
 
@@ -59,6 +56,14 @@ public class AdventureTest {
         if(player.getInventory().contains("ball") && !finalRoom.getItems().contains("ball")){
             assertTrue(true);
         }
+    }
+
+    @Test
+    public void testItemDrop() {
+        player.pickUpItem("ball", gameEngine.getRooms());
+        player.dropItem("ball", gameEngine.getRooms());
+        List<String> emptyList = new ArrayList<>();
+        assertEquals(emptyList,player.getInventory());
     }
 
     // Boundary Cases
@@ -74,9 +79,18 @@ public class AdventureTest {
     }
 
     @Test
-    public void testNonexistantItem() {
+    public void testNonexistantItemPickup() {
         try{
             player.pickUpItem("the state of Illinois", gameEngine.getRooms());
+        } catch (RuntimeException e){
+            assertTrue(true);
+        }
+    }
+
+    @Test
+    public void testNonexistantItemDrop() {
+        try{
+            player.dropItem("valuable onyx quartz and jewels", gameEngine.getRooms());
         } catch (RuntimeException e){
             assertTrue(true);
         }
