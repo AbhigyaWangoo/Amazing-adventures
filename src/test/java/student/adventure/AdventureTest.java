@@ -14,6 +14,22 @@ public class AdventureTest {
     }
 
     @Test
-    public void sanityCheck() {
+    public void testDeserialization() {
+    }
+
+    @Test
+    public void testPlayerPath() {
+    }
+
+    @Test
+    public void testNullPath() {
+    }
+
+    @Test
+    public void testItemDrop() {
+    }
+
+    @Test
+    public void testItemPickup() {
     }
 }
