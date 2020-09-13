@@ -1,121 +1,100 @@
 {
-  "Room": [
-    {
-      "soccerField": {
-        "items": [
-          "ball",
-          "cleats"
-        ],
-        "availableDirections": {
-          "west": "amazonTower",
-          "south": "plazaCenter",
-          "east": "basketballCourt"
-        }
-      }
-    },
-    {
-      "amazonTower": {
-        "items": [
-          "newspaper"
-        ],
-        "availableDirections": {
-          "inside": "amazonLobby",
-          "east": "soccerField",
-          "south": "ike's"
-        }
-      }
-    },
-    {
-      "amazonLobby": {
-        "items": [
-          "laptop",
-          "coffee"
-        ],
-        "availableDirections": {
-          "outside": "amazonTower"
-        }
-      }
-    },
-    {
-      "ikes": {
-        "items": [
-          "Elvis Keith Sandwich",
-          "Meatball Sub"
-        ],
-        "availableDirections": {
-          "north": "amazonTower",
-          "east": "plazaCenter"
-        }
-      }
-    },
-    {
-      "plazaCenter": {
-        "items": [
-        ],
-        "availableDirections": {
-          "west": "ikes",
-          "south": "videoShop",
-          "east": "adidas",
-          "north": "soccerField"
-        }
-      }
-    },
-    {
-      "adidas": {
-        "items": [
-          "Ultraboost",
-          "NMD"
-        ],
-        "availableDirections": {
-          "west": "plazaCenter",
-          "south": "hotel",
-          "north": "basketballCourt"
-        }
-      }
-    },
-    {
-      "basketballCourt": {
-        "items": [
-          "Basketball"
-        ],
-        "availableDirections": {
-          "west": "soccerField",
-          "south": "adidas"
-        }
-      }
-    },
-    {
-      "videoShop": {
-        "items": [
-          "Headphones",
-          "Controller"
-        ],
-        "availableDirections": {
-          "east": "hotel",
-          "north": "plazaCenter"
-        }
-      }
-    },
-    {
-      "hotel": {
-        "items": [
-        ],
-        "availableDirections": {
-          "inside": "insideHotel",
-          "north": "adidas",
-          "west": "videoShop"
-        }
-      }
-    },
-    {
-      "insideHotel": {
-        "items": [
-          "Suit"
-        ],
-        "availableDirections": {
-          "outside": "hotel"
-        }
-      }
+  "soccerField": {
+    "items": [
+      "ball",
+      "cleats"
+    ],
+    "directions": {
+      "west": "amazonTower",
+      "south": "plazaCenter",
+      "east": "basketballCourt"
     }
-  ]
+  },
+  "amazonTower": {
+    "items": [
+      "newspaper"
+    ],
+    "directions": {
+      "inside": "amazonLobby",
+      "east": "soccerField",
+      "south": "ike's"
+    }
+  },
+  "amazonLobby": {
+    "items": [
+      "laptop",
+      "coffee"
+    ],
+    "directions": {
+      "outside": "amazonTower"
+    }
+  },
+  "ikes": {
+    "items": [
+      "Elvis Keith Sandwich",
+      "Meatball Sub"
+    ],
+    "directions": {
+      "north": "amazonTower",
+      "east": "plazaCenter"
+    }
+  },
+  "plazaCenter": {
+    "items": [
+    ],
+    "directions": {
+      "west": "ikes",
+      "south": "videoShop",
+      "east": "adidas",
+      "north": "soccerField"
+    }
+  },
+  "adidas": {
+    "items": [
+      "Ultraboost",
+      "NMD"
+    ],
+    "directions": {
+      "west": "plazaCenter",
+      "south": "hotel",
+      "north": "basketballCourt"
+    }
+  },
+  "basketballCourt": {
+    "items": [
+      "Basketball"
+    ],
+    "directions": {
+      "west": "soccerField",
+      "south": "adidas"
+    }
+  },
+  "videoShop": {
+    "items": [
+      "Headphones",
+      "Controller"
+    ],
+    "directions": {
+      "east": "hotel",
+      "north": "plazaCenter"
+    }
+  },
+  "hotel": {
+    "items": [
+    ],
+    "directions": {
+      "inside": "insideHotel",
+      "north": "adidas",
+      "west": "videoShop"
+    }
+  },
+  "insideHotel": {
+    "items": [
+      "Suit"
+    ],
+    "directions": {
+      "outside": "hotel"
+    }
+  }
 }
+  
