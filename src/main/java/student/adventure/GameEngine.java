@@ -12,6 +12,11 @@ import java.util.Map;
 
 public class GameEngine {
   private RoomMap rooms = new RoomMap();
+  private Player player = new Player();
+
+  public Player getPlayer() {
+    return player;
+  }
 
   public RoomMap getRooms() {
     return rooms;
