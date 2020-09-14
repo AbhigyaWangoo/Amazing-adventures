@@ -1,43 +1,73 @@
 package student.adventure;
 
+import java.util.ArrayList;
+import java.util.List;
 
 public class Direction {
-    private String northRoom;
-    private String southRoom;
-    private String westRoom;
-    private String eastRoom;
-    private String insideRoom;
-    private String outsideRoom;
+  private String northRoom;
+  private String southRoom;
+  private String westRoom;
+  private String eastRoom;
+  private String insideRoom;
+  private String outsideRoom;
 
-    public String getNorthRoom() {
-        return northRoom;
+  public String getNorthRoom() {
+    return northRoom;
+  }
+
+  public String getSouthRoom() {
+    return southRoom;
+  }
+
+  public String getWestRoom() {
+    return westRoom;
+  }
+
+  public String getEastRoom() {
+    return eastRoom;
+  }
+
+  public String getInsideRoom() {
+    return insideRoom;
+  }
+
+  public void setInsideRoom(String insideRoom) {
+    this.insideRoom = insideRoom;
+  }
+
+  public String getOutsideRoom() {
+    return outsideRoom;
+  }
+
+  public void setOutsideRoom(String outsideRoom) {
+    this.outsideRoom = outsideRoom;
+  }
+
+  public List<String> findAvailableDirections() {
+    List<String> directionsList = new ArrayList<>();
+    if (getNorthRoom() != null) {
+      directionsList.add("north");
     }
 
-    public String getSouthRoom() {
-        return southRoom;
+    if (getSouthRoom() != null) {
+      directionsList.add("south");
     }
 
-    public String getWestRoom() {
-        return westRoom;
+    if (getEastRoom() != null) {
+      directionsList.add("east");
     }
 
-    public String getEastRoom() {
-        return eastRoom;
+    if (getWestRoom() != null) {
+      directionsList.add("west");
     }
 
-    public String getInsideRoom() {
-        return insideRoom;
+    if (getInsideRoom() != null) {
+      directionsList.add("inside");
     }
 
-    public void setInsideRoom(String insideRoom) {
-        this.insideRoom = insideRoom;
+    if (getOutsideRoom() != null) {
+      directionsList.add("outside");
     }
-
-    public String getOutsideRoom() {
-        return outsideRoom;
-    }
-
-    public void setOutsideRoom(String outsideRoom) {
-        this.outsideRoom = outsideRoom;
-    }
+    return directionsList;
+  }
 }

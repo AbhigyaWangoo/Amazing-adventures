@@ -14,23 +14,24 @@ public class UIOperations {
     this.userInput = userInput;
   }
 
-
   public void examine(Player player) {
+    Direction direction = player.getCurrentRoom().getDirections();
+    List<String> directions = direction.findAvailableDirections();
     System.out.println("You are currently in the " + player.getCurrentRoomName());
-    System.out.println("From here, you can go: " + findAvailableDirections(player.getCurrentRoom().getDirections()));
+    System.out.println("From here, you can go: " + directions);
     System.out.println("Items visible: " + player.getInventory());
   }
 
   public void displayErrorDirectionMessage(String wrongDirection) {
-    System.out.println("I can't go \"" + wrongDirection+"\"");
+    System.out.println("I can't go \"" + wrongDirection + "\"");
   }
 
   public void displayErrorDroppingItem(String wrongItem) {
-    System.out.println("You don't have \"" + wrongItem+"\"");
+    System.out.println("You don't have \"" + wrongItem + "\"");
   }
 
   public void displayErrorItemDuplicate(String wrongItem) {
-    System.out.println("The Item \"" + wrongItem+"\" is already in this room!");
+    System.out.println("The Item \"" + wrongItem + "\" is already in this room!");
   }
 
   public void displayErrorNoItemAvailable(String wrongItem) {
@@ -51,25 +52,8 @@ public class UIOperations {
   public void welcomeMessage() {
     System.out.println("Welcome to your very own adventure! Here are the controls:");
     displayCommands();
-    System.out.println("Here is your current status:");
+    System.out.println("Press any key to continue");
   }
 
   // Helper functions
-  private List<String> findAvailableDirections(Direction directions){
-    List<String> directionsList = new ArrayList<>();
-    if (directions.getNorthRoom().equals(null)) {
-      directionsList.add("north");
-    } if (directions.getSouthRoom().equals(null)) {
-      directionsList.add("south");
-    } if (directions.getEastRoom().equals(null)) {
-      directionsList.add("east");
-    } if (directions.getWestRoom().equals(null)) {
-      directionsList.add("west");
-    } if (directions.getInsideRoom().equals(null)) {
-      directionsList.add("inside");
-    } if (directions.getOutsideRoom().equals(null)) {
-      directionsList.add("outside");
-    }
-    return directionsList;
-  }
 }
