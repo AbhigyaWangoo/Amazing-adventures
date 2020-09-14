@@ -12,13 +12,12 @@ import static org.junit.Assert.*;
 
 public class AdventureTest {
     GameEngine gameEngine = new GameEngine();
-    Player player = new Player();
     @Before
     public void setUp() {
         gameEngine = new GameEngine();
-        player.setCurrentRoom(gameEngine.getRooms().getRooms().get("soccerField"));
-        player.setCurrentRoomName("soccerField");
-        player.setInventory(new ArrayList<>());
+        gameEngine.getPlayer().setCurrentRoom(gameEngine.getRooms().getRooms().get("soccerField"));
+        gameEngine.getPlayer().setCurrentRoomName("soccerField");
+        gameEngine.getPlayer().setInventory(new ArrayList<>());
 
         gameEngine.deserialize();
     }
@@ -48,31 +47,30 @@ public class AdventureTest {
 
     @Test
     public void testItemPickup() {
-        player.pickUpItem("ball", gameEngine.getRooms());
+        gameEngine.getPlayer().pickUpItem("ball", gameEngine.getRooms());
 
         gameEngine.getRooms().getRooms().get("soccerField").getItems().remove(0);
         RoomDetail finalRoom = gameEngine.getRooms().getRooms().get("soccerField");
 
-        if(player.getInventory().contains("ball") && !finalRoom.getItems().contains("ball")){
+        if(gameEngine.getPlayer().getInventory().contains("ball") && !finalRoom.getItems().contains("ball")){
             assertTrue(true);
         }
     }
 
     @Test
     public void testItemDrop() {
-        player.pickUpItem("ball", gameEngine.getRooms());
-        player.dropItem("ball", gameEngine.getRooms());
+        gameEngine.getPlayer().pickUpItem("ball", gameEngine.getRooms());
+        gameEngine.getPlayer().dropItem("ball", gameEngine.getRooms());
         List<String> emptyList = new ArrayList<>();
-        assertEquals(emptyList,player.getInventory());
+        assertEquals(emptyList,gameEngine.getPlayer().getInventory());
     }
 
     // Boundary Cases
     @Test
     public void testNullMovePath() {
-        Player player = new Player();
         RoomDetail currentRoom = gameEngine.getRooms().getRooms().get("soccerField");
         try{
-            player.move("north", gameEngine.getRooms(), currentRoom);
+            gameEngine.getPlayer().move("north", gameEngine.getRooms(), currentRoom);
         } catch (IllegalArgumentException e){
             assertTrue(true);
         }
@@ -81,7 +79,7 @@ public class AdventureTest {
     @Test
     public void testNonexistantItemPickup() {
         try{
-            player.pickUpItem("the state of Illinois", gameEngine.getRooms());
+            gameEngine.getPlayer().pickUpItem("the state of Illinois", gameEngine.getRooms());
         } catch (RuntimeException e){
             assertTrue(true);
         }
@@ -90,7 +88,7 @@ public class AdventureTest {
     @Test
     public void testNonexistantItemDrop() {
         try{
-            player.dropItem("valuable onyx quartz and jewels", gameEngine.getRooms());
+            gameEngine.getPlayer().dropItem("valuable onyx quartz and jewels", gameEngine.getRooms());
         } catch (RuntimeException e){
             assertTrue(true);
         }
