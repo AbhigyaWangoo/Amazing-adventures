@@ -35,7 +35,13 @@ public class AdventureTest {
     }
 
     @Test
+    public void testInventoryDisplay(){
+
+    }
+    @Test
     public void testPlayerPath() {
+        String[] args = {"go","east"};
+        gameEngine.play();
     }
 
     @Test

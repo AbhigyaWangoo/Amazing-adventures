@@ -31,8 +31,8 @@
   },
   "ikes": {
     "items": [
-      "Elvis Keith Sandwich",
-      "Meatball Sub"
+      "sandwich",
+      "sub"
     ],
     "directions": {
       "northRoom": "amazonTower",
@@ -51,8 +51,8 @@
   },
   "adidas": {
     "items": [
-      "Ultraboost",
-      "NMD"
+      "ultraboost",
+      "nmds"
     ],
     "directions": {
       "westRoom": "plazaCenter",
@@ -62,7 +62,7 @@
   },
   "basketballCourt": {
     "items": [
-      "Basketball"
+      "basketball"
     ],
     "directions": {
       "westRoom": "soccerField",
@@ -71,8 +71,8 @@
   },
   "videoShop": {
     "items": [
-      "Headphones",
-      "Controller"
+      "headphones",
+      "controller"
     ],
     "directions": {
       "eastRoom": "hotel",
@@ -88,9 +88,9 @@
       "westRoom": "videoShop"
     }
   },
-  "insideRoomHotel": {
+  "insideHotel": {
     "items": [
-      "Suit"
+      "suit"
     ],
     "directions": {
       "outsideRoom": "hotel"

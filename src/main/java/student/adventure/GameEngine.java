@@ -108,7 +108,9 @@ public class GameEngine {
       if (!isValidDirection(parameter)) {
         uiOperations.displayErrorDirectionMessage(parameter);
       }
-      player.move(parameter, rooms, player.getCurrentRoom());
+      else {
+        player.move(parameter, rooms, player.getCurrentRoom());
+      }
     }
 
     else if (command.compareTo("drop") == 0) {
@@ -117,14 +119,18 @@ public class GameEngine {
       } else if (isValidAvailableItem(parameter)) {
         uiOperations.displayErrorNoItemAvailable(parameter);
       }
-      player.dropItem(command, rooms);
+      else{
+        player.dropItem(parameter, rooms);
+      }
     }
 
     else if (command.compareTo("take") == 0) {
       if (!isValidAvailableItem(parameter)) {
         uiOperations.displayErrorNoItemAvailable(parameter);
       }
-      player.pickUpItem(parameter, rooms);
+      else{
+        player.pickUpItem(parameter, rooms);
+      }
     }
 
     else if (command.compareTo("start") == 0) {
@@ -135,7 +141,6 @@ public class GameEngine {
     else if (command.compareTo("exit") == 0) {
       return "exit";
     }
-    uiOperations.displayErrorUnknownCommand();
     return "Unknown Command";
   }
 

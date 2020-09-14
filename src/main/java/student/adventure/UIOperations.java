@@ -19,7 +19,8 @@ public class UIOperations {
     List<String> directions = direction.findAvailableDirections();
     System.out.println("You are currently in the " + player.getCurrentRoomName());
     System.out.println("From here, you can go: " + directions);
-    System.out.println("Items visible: " + player.getInventory());
+    System.out.println("Items visible: " + player.getCurrentRoom().getItems());
+    System.out.println("Inventory: " + player.getInventory());
   }
 
   public void displayErrorDirectionMessage(String wrongDirection) {
