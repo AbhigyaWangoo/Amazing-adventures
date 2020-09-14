@@ -8,13 +8,37 @@ import java.util.List;
 public class Player {
     private List<String> inventory;
     private RoomDetail currentRoom;
+    private RoomDetail startingRoom;
     private String currentRoomName;
+    private String startingRoomName;
 
-    public Player(RoomMap roomMap) {
-        RoomDetail room = roomMap.getRooms().get("soccerField");
+    // Constructor sets current room to starting room and sets starting room values
+    public Player(RoomMap roomMap, String initialRoomName) {
+        RoomDetail room = roomMap.getRooms().get(initialRoomName);
+
         setCurrentRoom(room);
-        setCurrentRoomName("soccerField");
+        setStartingRoom(room);
+
+        setCurrentRoomName(initialRoomName);
+        setStartingRoomName(initialRoomName);
+
         setInventory(new ArrayList<>());
+    }
+
+    public RoomDetail getStartingRoom() {
+        return startingRoom;
+    }
+
+    public void setStartingRoom(RoomDetail startingRoom) {
+        this.startingRoom = startingRoom;
+    }
+
+    public String getStartingRoomName() {
+        return startingRoomName;
+    }
+
+    public void setStartingRoomName(String startingRoomName) {
+        this.startingRoomName = startingRoomName;
     }
 
     public String getCurrentRoomName() {
@@ -123,6 +147,24 @@ public class Player {
             throw new RuntimeException();
         }
     }
+
+    public boolean isValidDirection(String direction) {
+        return getCurrentRoom().getDirections().findAvailableDirections().contains(direction);
+    }
+
+    public boolean isValidAvailableItem(String commandParameter) {
+        return getCurrentRoom().getItems().contains(commandParameter);
+    }
+
+    public boolean isValidItemDrop(String item) {
+        return getInventory().contains(item);
+    }
+
+    public void playerMoveBackToStart() {
+        setCurrentRoom(startingRoom);
+        setCurrentRoomName(startingRoomName);
+    }
+
     // Helper functions
     // following functions return a RoomDetail object of the room in the given direction
     private RoomDetail westRoom(RoomMap roomMap, RoomDetail currentRoom){
