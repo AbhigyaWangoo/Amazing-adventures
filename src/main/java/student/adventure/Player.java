@@ -36,13 +36,14 @@ public class Player {
     /**
      * Moves the player into specific direction
      * @param direction determines direction to move player to
+     * @param roomMap references map the player is in
+     * @param currentRoom contains details about current room player is in
      */
     public void move(String direction, RoomMap roomMap, RoomDetail currentRoom){
         switch(getFormattedString(direction)){
             case "west":
                 setCurrentRoomName(currentRoom.getDirections().getWestRoom());
                 setCurrentRoom(westRoom(roomMap,currentRoom));
-
                 break;
 
             case "east":
@@ -75,20 +76,34 @@ public class Player {
         }
     }
 
+    /**
+     * Function for picking up items in rooms, throws runtime exception if item doesn't exist
+     * @param item to pickup
+     * @param roomMap references map the player is in
+     */
     public void pickUpItem(String item, RoomMap roomMap){
         List<String> items = roomMap.getRooms().get(currentRoomName).getItems();
         try{
             int indexOf = items.indexOf(item);
+            if (indexOf == -1)
+                throw new NullPointerException();
 
             inventory.add(items.get(indexOf)); // Adds item picked up to inventory
             items.remove(indexOf); // Removes item from room
 
             roomMap.getRooms().get(currentRoomName).setItems(items);
+        }catch (NullPointerException e) {
+            System.out.println("Item doesn't exist");
         } catch(Exception e){
             throw new RuntimeException();
         }
     }
 
+    /**
+     * Function for dropping items in rooms
+     * @param item to drop
+     * @param roomMap references map the player is in
+     */
     public void dropItem(String item, RoomMap roomMap){
         List<String> roomItems = roomMap.getRooms().get(currentRoomName).getItems();
         try{
