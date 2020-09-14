@@ -11,7 +11,8 @@ public class Player {
     private String currentRoomName;
 
     public Player(RoomMap roomMap) {
-        setCurrentRoom(roomMap.getRooms().get("soccerField"));
+        RoomDetail room = roomMap.getRooms().get("soccerField");
+        setCurrentRoom(room);
         setCurrentRoomName("soccerField");
         setInventory(new ArrayList<>());
     }
