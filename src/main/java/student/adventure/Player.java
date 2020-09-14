@@ -1,5 +1,6 @@
 package student.adventure;
 
+import java.util.ArrayList;
 import java.util.List;
 /**
  * Class decides the player's current information
@@ -8,6 +9,12 @@ public class Player {
     private List<String> inventory;
     private RoomDetail currentRoom;
     private String currentRoomName;
+
+    public Player(RoomMap roomMap) {
+        setCurrentRoom(roomMap.getRooms().get("soccerField"));
+        setCurrentRoomName("soccerField");
+        setInventory(new ArrayList<>());
+    }
 
     public String getCurrentRoomName() {
         return currentRoomName;

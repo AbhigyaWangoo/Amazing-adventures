@@ -12,13 +12,11 @@ import static org.junit.Assert.*;
 
 public class AdventureTest {
     GameEngine gameEngine = new GameEngine();
+    Player player;
     @Before
     public void setUp() {
         gameEngine = new GameEngine();
-        gameEngine.getPlayer().setCurrentRoom(gameEngine.getRooms().getRooms().get("soccerField"));
-        gameEngine.getPlayer().setCurrentRoomName("soccerField");
-        gameEngine.getPlayer().setInventory(new ArrayList<>());
-
+        player = new Player(gameEngine.getRooms());
         gameEngine.deserialize();
     }
 
@@ -29,7 +27,6 @@ public class AdventureTest {
 
     @Test
     public void testPlayerMove() {
-        Player player = new Player();
         RoomDetail currentRoom = gameEngine.getRooms().getRooms().get("soccerField");
         RoomDetail nextRoom = gameEngine.getRooms().getRooms().get("amazonTower");
 
