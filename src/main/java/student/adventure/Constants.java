@@ -1,5 +1,8 @@
 package student.adventure;
 
+/**
+ * Holds all used constants in rest of game
+ */
 public class Constants {
     // Directions
     public static final String WEST = "west";
