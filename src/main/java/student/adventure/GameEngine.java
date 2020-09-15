@@ -53,8 +53,8 @@ public class GameEngine {
   }
 
   /**
-   * Function called to begin game on command line. In case of setup error, prints stack,
-   * in case of unknown command, will redisplay examine board and claim that command was invalid
+   * Function called to begin game on command line. In case of setup error, prints stack, in case of
+   * unknown command, will redisplay examine board and claim that command was invalid
    *
    * @param inputStream specifies the input stream to read from
    */
@@ -66,29 +66,26 @@ public class GameEngine {
       String userInput = "";
       Scanner scanner = new Scanner(inputStream);
 
-      while (userInput != "exit") {
+      while (!userInput.toLowerCase().equals(Constants.EXIT)) {
         uiOperations.examine(player);
-        userInput = scanner.nextLine();
-
-        userInput = followCommand(userInput);
+        userInput = scanner.nextLine().toLowerCase();
+        try{
+          userInput = followCommand(userInput);
+        } catch (IllegalArgumentException e) {
+          System.out.println(e.getMessage());
+          uiOperations.displayErrorUnknownCommand();
+        }
       }
     } catch (Exception e) {
       e.printStackTrace();
     }
   }
 
-  public static void main(String[] args) {
-    GameEngine gameEngine = new GameEngine();
-    gameEngine.play(System.in);
-  }
-
   // helper methods
-  /**
-   * Sets up entire game, loads JSON, assigns player to first room
-   */
+  /** Sets up entire game, loads JSON, assigns player to first room */
   private void setUpGame() {
     deserialize();
-    player = new Player(rooms, "soccerField");
+    player = new Player(rooms, player.getStartingRoomName());
   }
 
   /**
@@ -103,54 +100,51 @@ public class GameEngine {
   }
 
   /**
-   * Follows and executes command from user input provided in play(). Returns empty string if command
-   * isn't recognizable
+   * Follows and executes command from user input provided in play(). Returns empty string if
+   * command isn't recognizable
+   *
    * @param input represents user input from play()
    * @return empty String if theres no problem with command, "Unknown Command" if otherwise
    */
   private String followCommand(String input) {
-    input = input.toLowerCase();
     String[] commandParameters = input.split(" ");
-    if(commandParameters.length != 2)
-      throw new IllegalArgumentException();
+
+    if (commandParameters.length != 2) {
+      throw new IllegalArgumentException(UIOperations.ERR_UNKNOWN_CMD);
+    }
 
     String command = commandParameters[0]; // action
-    String parameter = commandParameters[1]; // specification
+    String parameter = commandParameters[1]; // action specification
 
     List<String> commands = new ArrayList<>();
-    commands.add("go");
-    commands.add("drop");
-    commands.add("take");
-    commands.add("start");
-    commands.add("exit");
-    commands.add("examine"); // potentially needs to be moved
+    commands.add(Constants.GO);
+    commands.add(Constants.DROP);
+    commands.add(Constants.TAKE);
+    commands.add(Constants.START);
+    commands.add(Constants.EXIT);
+    commands.add(Constants.EXAMINE); // potentially needs to be moved
 
     return determineCommand(commands, command, parameter);
   }
 
   private String determineCommand(List<String> commands, String command, String parameter) {
     if (!commands.contains(command)) {
-      uiOperations.displayErrorUnknownCommand();
-      return "Unknown Command";
+      throw new IllegalArgumentException(UIOperations.ERR_UNKNOWN_CMD);
     }
 
     if (commands.get(0).compareTo(command) == 0) {
       playerMovementCommand(parameter);
-    }
-    else if (commands.get(1).compareTo(command) == 0) {
+    } else if (commands.get(1).compareTo(command) == 0) {
       playerDropCommand(parameter);
-    }
-    else if (commands.get(2).compareTo(command) == 0) {
+    } else if (commands.get(2).compareTo(command) == 0) {
       playerPickUpCommand(parameter);
-    }
-    else if (commands.get(3).compareTo("start") == 0) {
+    } else if (commands.get(3).compareTo(Constants.START) == 0) {
       player.playerMoveBackToStart();
-    } else if (command.compareTo("exit") == 0) {
-      return "exit";
+    } else if (command.compareTo(Constants.EXIT) == 0) {
+      return Constants.EXIT;
     }
-    return "";
+    throw new IllegalArgumentException(UIOperations.ERR_UNKNOWN_CMD);
   }
-
 
   private void playerPickUpCommand(String parameter) {
     if (!player.isValidAvailableItem(parameter)) {
@@ -177,4 +171,5 @@ public class GameEngine {
       player.move(parameter, rooms, player.getCurrentRoom());
     }
   }
+
 }

@@ -46,27 +46,27 @@ public class Direction {
   public List<String> findAvailableDirections() {
     List<String> directionsList = new ArrayList<>();
     if (getNorthRoom() != null) {
-      directionsList.add("north");
+      directionsList.add(Constants.NORTH);
     }
 
     if (getSouthRoom() != null) {
-      directionsList.add("south");
+      directionsList.add(Constants.SOUTH);
     }
 
     if (getEastRoom() != null) {
-      directionsList.add("east");
+      directionsList.add(Constants.EAST);
     }
 
     if (getWestRoom() != null) {
-      directionsList.add("west");
+      directionsList.add(Constants.WEST);
     }
 
     if (getInsideRoom() != null) {
-      directionsList.add("inside");
+      directionsList.add(Constants.INSIDE);
     }
 
     if (getOutsideRoom() != null) {
-      directionsList.add("outside");
+      directionsList.add(Constants.OUTSIDE);
     }
     return directionsList;
   }

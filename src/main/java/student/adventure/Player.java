@@ -12,8 +12,8 @@ public class Player {
     private String currentRoomName;
     private String startingRoomName;
 
-    // Constructor sets current room to starting room and sets starting room values
-    public Player(RoomMap roomMap, String initialRoomName) {
+  // Constructor sets current room to starting room and sets starting room values
+  public Player(RoomMap roomMap, String initialRoomName) {
         RoomDetail room = roomMap.getRooms().get(initialRoomName);
 
         setCurrentRoom(room);
@@ -73,32 +73,32 @@ public class Player {
      */
     public void move(String direction, RoomMap roomMap, RoomDetail currentRoom){
         switch(getFormattedString(direction)){
-            case "west":
+            case Constants.WEST:
                 setCurrentRoomName(currentRoom.getDirections().getWestRoom());
                 setCurrentRoom(westRoom(roomMap,currentRoom));
                 break;
 
-            case "east":
+            case Constants.EAST:
                 setCurrentRoomName(currentRoom.getDirections().getEastRoom());
                 setCurrentRoom(eastRoom(roomMap,currentRoom));
                 break;
 
-            case "north":
+            case Constants.NORTH:
                 setCurrentRoomName(currentRoom.getDirections().getNorthRoom());
                 setCurrentRoom(northRoom(roomMap,currentRoom));
                 break;
 
-            case "south":
+            case Constants.SOUTH:
                 setCurrentRoomName(currentRoom.getDirections().getSouthRoom());
                 setCurrentRoom(southRoom(roomMap,currentRoom));
                 break;
 
-            case "inside":
+            case Constants.INSIDE:
                 setCurrentRoomName(currentRoom.getDirections().getInsideRoom());
                 setCurrentRoom(insideRoom(roomMap,currentRoom));
                 break;
 
-            case "outside":
+            case Constants.OUTSIDE:
                 setCurrentRoomName(currentRoom.getDirections().getOutsideRoom());
                 setCurrentRoom(outsideRoom(roomMap,currentRoom));
                 break;
