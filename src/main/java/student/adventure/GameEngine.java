@@ -67,7 +67,7 @@ public class GameEngine {
       String userInput = "";
       Scanner scanner = new Scanner(inputStream);
 
-      while (!userInput.toLowerCase().equals(Constant.EXIT)) {
+      while (!userInput.toLowerCase().equals(Constant.EXIT) && !userInput.toLowerCase().equals(Constant.QUIT)) {
         UIOperations.examine(player);
         userInput = scanner.nextLine().toLowerCase();
         try {
@@ -199,11 +199,4 @@ public class GameEngine {
       player.move(parameter, rooms, player.getCurrentRoom());
     }
   }
-
-  /*private boolean checkPlayerVictory(){
-    Player winningPlayerStatus = new Player(rooms, player.getStartingRoomName());
-    if (player.equals(winningPlayerStatus)) {
-      return true;
-    }
-  }*/
 }

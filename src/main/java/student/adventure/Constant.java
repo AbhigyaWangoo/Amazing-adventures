@@ -14,6 +14,7 @@ public class Constant {
 
     // Commands
     public static final String EXIT = "exit";
+    public static final String QUIT = "quit";
     public static final String START = "start";
     public static final String GO = "go";
     public static final String TAKE = "take";
