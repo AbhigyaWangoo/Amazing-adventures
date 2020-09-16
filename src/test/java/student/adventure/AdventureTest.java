@@ -55,18 +55,6 @@ public class AdventureTest {
         assertEquals(player.getCurrentRoom(), nextRoom);
     }
 
-    @Test
-    public void testPlayerPath() {
-        GameEngine gameEngine = new GameEngine();
-        InputStream x = System.in;
-        gameEngine.play(x);
-
-        args = "go east";
-        in = new ByteArrayInputStream(args.getBytes());
-
-        Scanner scanner = new Scanner(in);
-
-    }
 
     @Test
     public void testItemPickup() {
@@ -133,6 +121,41 @@ public class AdventureTest {
             gameEngine.getPlayer().dropItem("valuable onyx quartz and jewels", gameEngine.getRooms());
         } catch (RuntimeException e){
             assertTrue(true);
+        }
+    }
+
+    // Attempted UI Tests
+    @Test
+    public void testPlayerPath() {
+        GameEngine gameEngine = new GameEngine();
+        args = "go east";
+        in = new ByteArrayInputStream(args.getBytes());
+        Scanner scanner = new Scanner(in);
+        String pattern = "You are currently in the basketballCourt";
+
+        gameEngine.play(in);
+
+        if(scanner.hasNext(pattern)){
+            assertTrue(true);
+        } else{
+            assertTrue(false);
+        }
+    }
+
+    @Test
+    public void testPlayerPickup() {
+        GameEngine gameEngine = new GameEngine();
+        args = "take ball";
+        in = new ByteArrayInputStream(args.getBytes());
+        Scanner scanner = new Scanner(in);
+        String pattern = "Inventory: [ball]";
+
+        gameEngine.play(in);
+
+        if(scanner.hasNext(pattern)){
+            assertTrue(true);
+        } else{
+            assertTrue(false);
         }
     }
 }
