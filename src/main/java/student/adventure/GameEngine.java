@@ -12,6 +12,11 @@ import java.util.*;
 public class GameEngine {
   private RoomMap rooms;
   private Player player;
+  private Gson gson;
+
+  public Gson getGson() {
+    return gson;
+  }
 
   public GameEngine() {
     setUpGame();
@@ -32,7 +37,7 @@ public class GameEngine {
    * @return true if successful, false if otherwise
    */
   public boolean deserialize() {
-    Gson gson = new Gson();
+    gson = new Gson();
     rooms = new RoomMap();
     String file =
         "/Users/abhigyawangoo/IdeaProjects/amazing-adventures-AbhiWangoo/src/main/resources/AdventureMap.json";
@@ -147,8 +152,7 @@ public class GameEngine {
     } else if (command.compareTo(Constant.EXIT) == 0) {
       return Constant.EXIT;
     }
-
-    throw new IllegalArgumentException("determine commang exception thrown 2");
+    return "\n";
   }
 
   /**
@@ -195,4 +199,11 @@ public class GameEngine {
       player.move(parameter, rooms, player.getCurrentRoom());
     }
   }
+
+  /*private boolean checkPlayerVictory(){
+    Player winningPlayerStatus = new Player(rooms, player.getStartingRoomName());
+    if (player.equals(winningPlayerStatus)) {
+      return true;
+    }
+  }*/
 }
