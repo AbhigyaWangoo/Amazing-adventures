@@ -34,10 +34,10 @@ public class UIOperations {
   }
 
   public static void displayCommands() {
-    System.out.println("\n" + Constants.GO + " + <whichever available direction you want to go in>");
-    System.out.println(Constants.TAKE + " + <whichever available item you want to take>");
-    System.out.println(Constants.DROP + " + <whichever available item you want to drop in the room>");
-    System.out.println(Constants.START + " which takes you to the beginning of the game \n");
+    System.out.println("\n" + Constant.GO + " + <whichever available direction you want to go in>");
+    System.out.println(Constant.TAKE + " + <whichever available item you want to take>");
+    System.out.println(Constant.DROP + " + <whichever available item you want to drop in the room>");
+    System.out.println(Constant.START + " which takes you to the beginning of the game \n");
   }
 
   public static void welcomeMessage() {
@@ -46,5 +46,7 @@ public class UIOperations {
     System.out.println("\nPress any key to continue");
   }
 
-  // Helper functions
+  static String getFormattedString(String s) {
+    return s.replaceAll("\\s", "").toLowerCase();
+  }
 }
