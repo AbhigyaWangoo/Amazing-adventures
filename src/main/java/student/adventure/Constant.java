@@ -3,7 +3,7 @@ package student.adventure;
 /**
  * Holds all used constants in rest of game
  */
-public class Constants {
+public class Constant {
     // Directions
     public static final String WEST = "west";
     public static final String NORTH = "north";
