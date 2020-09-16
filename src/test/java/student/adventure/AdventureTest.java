@@ -1,6 +1,7 @@
 package student.adventure;
 
-import com.fasterxml.jackson.core.JsonParser;
+
+import com.google.gson.JsonObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -21,7 +22,7 @@ public class AdventureTest {
     private final String SOCCER_FIELD = "soccerField";
     private final String AMAZON_TOWER = "amazonTower";
     private final String BALL = "ball";
-
+    private final String WEST = "west";
     @Before
     public void setUp() {
         gameEngine = new GameEngine();
@@ -38,15 +39,13 @@ public class AdventureTest {
         assertTrue(gameEngine.deserialize());
     }
 
-    /*@Test
+    @Test
     public void isValidJson(){
-        String json = "/Users/abhigyawangoo/IdeaProjects/amazing-adventures-AbhiWangoo/src/main/resources/AdventureMap.json";
-        try{
-            new JsonParser().parse(json);
-        } catch(Exception e){
-            assertFalse(true);
+        JsonObject jsonObject = new JsonObject();
+        if(jsonObject.has(SOCCER_FIELD) && jsonObject.has(WEST) && jsonObject.has(BALL)){
+            assertTrue(true);
         }
-    }*/
+    }
 
     @Test
     public void testPlayerMove() {
