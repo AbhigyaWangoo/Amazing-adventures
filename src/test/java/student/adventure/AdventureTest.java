@@ -5,6 +5,7 @@ import com.google.gson.JsonObject;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import student.pojo.RoomDetail;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -55,6 +56,17 @@ public class AdventureTest {
         assertEquals(player.getCurrentRoom(), nextRoom);
     }
 
+    @Test
+    public void testPlayerMoveAndTake() {
+        RoomDetail nextRoom = gameEngine.getRooms().getRooms().get(AMAZON_TOWER);
+
+        player.move("west", gameEngine.getRooms(),player.getStartingRoom());
+        player.pickUpItem("newspaper", gameEngine.getRooms());
+
+        if(player.getInventory().contains("newspaper") && player.getCurrentRoomName().compareTo("amazonTower") == 0)
+            assertTrue(true);
+    }
+
 
     @Test
     public void testItemPickup() {
@@ -77,6 +89,16 @@ public class AdventureTest {
         assertEquals(emptyList,gameEngine.getPlayer().getInventory());
     }
 
+    @Test
+    public void testPlayerTakeAndMove() {
+        RoomDetail nextRoom = gameEngine.getRooms().getRooms().get(AMAZON_TOWER);
+        player.pickUpItem("ball", gameEngine.getRooms());
+        player.move("west", gameEngine.getRooms(),player.getStartingRoom());
+        player.dropItem("ball", gameEngine.getRooms());
+
+        if(player.getInventory().contains("ball") && player.getCurrentRoomName().compareTo("amazonTower") == 0 && player.getCurrentRoom().getItems().contains("ball"))
+            assertTrue(true);
+    }
     @Test
     public void testGoToStart(){
         gameEngine.getPlayer().move("south", gameEngine.getRooms(), player.getCurrentRoom());
@@ -138,7 +160,7 @@ public class AdventureTest {
         if(scanner.hasNext(pattern)){
             assertTrue(true);
         } else{
-            assertTrue(false);
+            fail();
         }
     }
 
@@ -155,7 +177,7 @@ public class AdventureTest {
         if(scanner.hasNext(pattern)){
             assertTrue(true);
         } else{
-            assertTrue(false);
+            fail();
         }
     }
 }

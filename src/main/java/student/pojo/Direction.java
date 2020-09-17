@@ -1,8 +1,13 @@
-package student.adventure;
+package student.pojo;
+
+import student.pojo.Constant;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Level of JSON schema holding directions
+ */
 public class Direction {
   private String northRoom;
   private String southRoom;
@@ -43,6 +48,11 @@ public class Direction {
     this.outsideRoom = outsideRoom;
   }
 
+  /**
+   * Finds available directions for current RoomDetail object. error handling done above function
+   *
+   * @return string list of directions
+   */
   public List<String> findAvailableDirections() {
     List<String> directionsList = new ArrayList<>();
     if (getNorthRoom() != null) {

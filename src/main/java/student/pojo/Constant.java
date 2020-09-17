@@ -1,4 +1,4 @@
-package student.adventure;
+package student.pojo;
 
 /**
  * Holds all used constants in rest of game

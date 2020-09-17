@@ -2,6 +2,9 @@ package student.adventure;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import student.pojo.Constant;
+import student.pojo.RoomDetail;
+import student.pojo.RoomMap;
 
 import java.io.InputStream;
 import java.lang.reflect.Type;
@@ -109,7 +112,11 @@ public class GameEngine {
   private String followCommand(String input) {
     String[] commandParameters = input.split(" ");
 
-    if (commandParameters.length != 2) {
+    if(input.compareTo(Constant.START) == 0 || input.compareTo(Constant.EXIT) == 0){
+      player.playerMoveBackToStart();
+      return "Moved back to start";
+    }
+    else if (commandParameters.length != 2) {
       throw new IllegalArgumentException(UIOperations.unknownCommand());
     }
 
@@ -120,9 +127,8 @@ public class GameEngine {
     commands.add(Constant.GO);
     commands.add(Constant.DROP);
     commands.add(Constant.TAKE);
-    commands.add(Constant.START);
     commands.add(Constant.EXIT);
-    commands.add(Constant.EXAMINE); // potentially needs to be moved
+    commands.add(Constant.EXAMINE);
 
     return determineCommand(commands, command, parameter);
   }
@@ -149,6 +155,8 @@ public class GameEngine {
       playerPickUpCommand(parameter);
     } else if (commands.get(3).compareTo(Constant.START) == 0) {
       player.playerMoveBackToStart();
+    } else if (commands.get(4).compareTo(Constant.EXAMINE) == 0) {
+      return "\n";
     } else if (command.compareTo(Constant.EXIT) == 0) {
       return Constant.EXIT;
     }

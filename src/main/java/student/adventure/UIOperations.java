@@ -1,7 +1,13 @@
 package student.adventure;
 
+import student.pojo.Constant;
+import student.pojo.Direction;
+
 import java.util.List;
 
+/**
+ * Class to handle UI Messages
+ */
 public class UIOperations {
   public static void examine(Player player) {
     Direction direction = player.getCurrentRoom().getDirections();
@@ -9,7 +15,7 @@ public class UIOperations {
     System.out.println("You are currently in the " + player.getCurrentRoomName());
     System.out.println("From here, you can go: " + directions);
     System.out.println("Items visible: " + player.getCurrentRoom().getItems());
-    System.out.println("Inventory: " + player.getInventory()); // edit this for gramatic edits
+    System.out.println("Inventory: " + player.getInventory());
   }
 
   public static String unknownCommand(){
@@ -48,5 +54,17 @@ public class UIOperations {
 
   static String getFormattedString(String s) {
     return s.replaceAll("\\s", "").toLowerCase();
+  }
+
+  public static String getPlayerLocation(Player player){
+    Direction directions = player.getCurrentRoom().getDirections();
+    List<String> availableDirections = directions.findAvailableDirections();
+
+    String returnValue = "You can head ";
+    for(String s:availableDirections){
+      returnValue = returnValue +s+" ";
+    }
+
+    return returnValue;
   }
 }

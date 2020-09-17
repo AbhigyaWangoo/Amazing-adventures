@@ -1,4 +1,4 @@
-package student.adventure;
+package student.pojo;
 
 import java.util.HashMap;
 import java.util.Map;

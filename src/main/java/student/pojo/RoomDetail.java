@@ -1,8 +1,9 @@
-package student.adventure;
+package student.pojo;
+
+import student.pojo.Direction;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /** Level of JSON schema containing individual rooms' details */
 public class RoomDetail {
