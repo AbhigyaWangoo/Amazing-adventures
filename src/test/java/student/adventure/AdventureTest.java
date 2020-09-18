@@ -52,7 +52,7 @@ public class AdventureTest {
     public void testPlayerMove() {
         RoomDetail nextRoom = gameEngine.getRooms().getRooms().get(AMAZON_TOWER);
 
-        player.move("west", gameEngine.getRooms(),player.getStartingRoom());
+        player.move(WEST, gameEngine.getRooms(),player.getStartingRoom());
         assertEquals(player.getCurrentRoom(), nextRoom);
     }
 
@@ -60,7 +60,7 @@ public class AdventureTest {
     public void testPlayerMoveAndTake() {
         RoomDetail nextRoom = gameEngine.getRooms().getRooms().get(AMAZON_TOWER);
 
-        player.move("west", gameEngine.getRooms(),player.getStartingRoom());
+        player.move(WEST, gameEngine.getRooms(),player.getStartingRoom());
         player.pickUpItem("newspaper", gameEngine.getRooms());
 
         if(player.getInventory().contains("newspaper") && player.getCurrentRoomName().compareTo("amazonTower") == 0)
@@ -92,11 +92,11 @@ public class AdventureTest {
     @Test
     public void testPlayerTakeAndMove() {
         RoomDetail nextRoom = gameEngine.getRooms().getRooms().get(AMAZON_TOWER);
-        player.pickUpItem("ball", gameEngine.getRooms());
-        player.move("west", gameEngine.getRooms(),player.getStartingRoom());
-        player.dropItem("ball", gameEngine.getRooms());
+        player.pickUpItem(BALL, gameEngine.getRooms());
+        player.move(WEST, gameEngine.getRooms(),player.getStartingRoom());
+        player.dropItem(BALL, gameEngine.getRooms());
 
-        if(player.getInventory().contains("ball") && player.getCurrentRoomName().compareTo("amazonTower") == 0 && player.getCurrentRoom().getItems().contains("ball"))
+        if(player.getInventory().contains(BALL) && player.getCurrentRoomName().compareTo("amazonTower") == 0 && player.getCurrentRoom().getItems().contains(BALL))
             assertTrue(true);
     }
     @Test
